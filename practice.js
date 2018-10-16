@@ -93,9 +93,11 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 function evenFinder(nums){
  var evens = [];
+for(i=0;i<nums.length;i++){
  if(nums[i] % 2 === 0){
-   evens.push[i]
+  evens.push(nums[i]);
  }
+}
 return evens;
 }
 
@@ -125,6 +127,20 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 //Code Here
 
+function divider(arr){
+var evens = [];
+var odds = [];
+
+for(i=0;i<arr.length;i++){
+  if(arr[i] % 2 === 0 ){
+    evens.push(arr[i]);
+  }
+  else {
+    odds.push(arr[i]);
+  }
+}
+return [evens,odds]
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -146,7 +162,15 @@ var getRandomArbitrary = function() {
 
 //Code Here
 
+function finder(arr){
+  var rand = getRandomArbitrary();
+  for(i=0;i<arr.length;i++){
+    if(arr[i] === rand){
+      return true;
+    }
+  } return false;
 
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -174,6 +198,35 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+function addItem(myGroceryList,item){
+  // add to grocery list
+if(!myGroceryList || !item){
+  return [];
+}
+myGroceryList.push(item);
+
+  return myGroceryList;
+}
+
+
+
+function removeItem(myGroceryList,item){
+  // remove item from grocery list
+if(!myGroceryList || !item){
+  return [];
+}
+
+  for(i=0;i<myGroceryList.length;i++){
+    if(myGroceryList[i]===item){
+      // console.log(myGroceryList[i]);
+      // console.log(item);
+      myGroceryList.splice(i,1);
+    }
+
+  }
+  return myGroceryList;
+}
+
 
 
 
@@ -185,7 +238,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
-
+function maker(){
+  arr=[];
+  for(i=1;i<=215;i++){
+    arr.push(i);
+  }
+  return arr;
+}
 
 ////////// PROBLEM 10 //////////
 
@@ -200,8 +259,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
-
+ function addTen(numbers){
+   var newArr=[];
+   console.log(numbers)
+    for(i=0;i<numbers.length;i++){
+      num = parseInt(numbers[i]);
+      newArr.push(num+10);
+    }
+   return newArr;
+ }
 
 ////////// PROBLEM 11 //////////
 
@@ -226,7 +292,14 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function longer(arr1,arr2){
+ if(arr1.length > arr2.length){
+   return arr1;
+ }
+ else{
+   return arr2;
+ }
+}
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -238,7 +311,19 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
+function both(arr1,arr2){
+var arr3=[];
+  for(let i=0;i<arr1.length;i++){
+    let val = arr1[i];
 
+    for(let i = 0; i<arr2.length; i++){
+      if(val === arr2[i]){
+        arr3.push(val);
+      }
+    }
+  }
+  return arr3;
+}
 
 ////////// PROBLEM 12 //////////
 
@@ -278,7 +363,8 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.push(tyler,cahlan,ryan,colt);
+console.log(devMountainEmployees.length);
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -287,7 +373,11 @@ var colt = {
 
 //Code Here
 
-
+for(let i=0; i <devMountainEmployees.length;i++){
+  if(devMountainEmployees[i] === cahlan){
+    devMountainEmployees.splice(i,1);
+  }
+}
 
 ////////// PROBLEM 13 //////////
 
@@ -299,7 +389,7 @@ var colt = {
 
 //Code Here
 
-
+var users =[];
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
@@ -318,8 +408,19 @@ var user1 = {
 
 //Code Here
 
-
-
+function addUsers(name,email,password,username){
+  users.push({
+    name:name,
+    email:email,
+    password:password,
+    username:username
+  })
+}
+users.push(user1);
+addUsers('bob',"bob@bob",'p4ssword','userBOB');
+addUsers('tom',"tom@tom",'password','userTOM');
+addUsers('joe',"joe@joe",'p4ssword','userJOE');
+// alert(users.length);
 /*
   Now you have a very common data structure. 
   Twitter is a good use case.
@@ -332,6 +433,13 @@ var user1 = {
 
 //Code Here
 
+for(i=0; i<users.length; i++){
+
+  let val = Object.values(users[i]);
+      if(val.includes('tylermcginnis33@gmail.com')===true){
+        users.splice(i,1);
+      }
+}
 
 
 /*
